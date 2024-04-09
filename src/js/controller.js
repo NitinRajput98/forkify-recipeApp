@@ -31,12 +31,7 @@ const controlRecipes = async function () {
     recipeView.render(model.state.recipe);
   } catch (err) {
     recipeView.renderError();
-    console.error(err);
   }
-};
-
-const newFeature = function () {
-  console.log('New feature');
 };
 
 const controlSearchResults = async function () {
@@ -99,8 +94,6 @@ const controlAddRecipe = async function (newRecipe) {
 
     // Upload the new recipe data
     await model.uploadRecipe(newRecipe);
-    console.log(model.state.recipe);
-
     // Render recipe
     recipeView.render(model.state.recipe);
 
@@ -118,7 +111,6 @@ const controlAddRecipe = async function (newRecipe) {
       addRecipeView.toggleWindow();
     }, MODAL_CLOSE_SEC * 1000);
   } catch (err) {
-    console.error('💥', err);
     addRecipeView.renderError(err.message);
   }
 };
